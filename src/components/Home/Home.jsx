@@ -8,9 +8,12 @@ import {
   Section5,
 } from './Sections/Sections'
 
+import FeaturedPostsList from '../Post/FeaturedPostList/FeaturedPostsList'
+import RegularPostsList from '../Post/RegularPostList/RegularPostsList'
 
 
 class Home extends Component {
+
   render() {
     return (
 
@@ -39,8 +42,22 @@ class Home extends Component {
               <Section5 />
             </Col>
           </Row>
+
+          <Row>
+            <Col xs={12} md={12}>
+              <h1>Featured Posts</h1>
+              <FeaturedPostsList className="background-blue" />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={12}>
+              <h1>All Posts</h1>
+              <RegularPostsList className="background-yellow" />
+            </Col>
+          </Row>
+
         </div>
-        
+
       </Grid>
 
 

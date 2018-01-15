@@ -25,11 +25,11 @@ app.use('/profile_imgs', express.static(path.join(__dirname, 'profile_imgs')))
 //     next();
 // });
 //helmet(app);
-// app.use(cors({
-//     credentials: true,
-//     //origin: `http://${process.env.APP_DOMAIN}`,
-//     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
-// }));
+app.use(cors({
+    credentials: true,
+    origin: `http://localhost:8081`,
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+}));
 app.use(morgan('dev'))
 /** Parse requests **/
 app.use(bodyParser.json());
