@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 // Components
 import Home from '../components/Home/Home';
 import Contact from '../components/Contact/Contact';
+import Profile from '../components/Profile/Profile';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import Login from '../components/Login/Login'
@@ -23,6 +24,7 @@ const AppRoutes = () =>
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/post/:postId" component={Post} />
       <Route exact path="/post-create" component={PostCreate} />
+      <Route exact path="/profile" component={Profile} />
     </Switch>
     <Footer />
   </main>;
