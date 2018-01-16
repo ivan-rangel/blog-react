@@ -14,7 +14,11 @@ class Signup extends Component {
       user: {}
     };
   }
-
+  componentWillMount() {
+    if (this.authS.isLoggedIn()) {
+      return this.props.history.replace('/');
+    }
+  }
   handleChange(e) {
     let user = Object.assign({}, this.state.user);
     user[e.target.id] = e.target.value;
@@ -34,81 +38,78 @@ class Signup extends Component {
         <Row>
           <Col md={12} xs={12}>
             <h1>Sign Up</h1>
+            <form onSubmit={this.handleSubmit}>
+              <FormGroup
+                controlId="firstName"
+              >
+                <ControlLabel>First Name</ControlLabel>
+                <FormControl
+                  type="text"
+                  placeholder="Ivan"
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+
+              <FormGroup
+                controlId="lastName"
+              >
+                <ControlLabel>Last Name</ControlLabel>
+                <FormControl
+                  type="text"
+                  placeholder="Rangel"
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+
+              <FormGroup
+                controlId="email"
+              >
+                <ControlLabel>Email</ControlLabel>
+                <FormControl
+                  type="text"
+                  placeholder="something@whatever.any"
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+
+              <FormGroup
+                controlId="password"
+              >
+                <ControlLabel>Password</ControlLabel>
+                <FormControl
+                  type="password"
+                  placeholder="Password"
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+              <FormGroup
+                controlId="confirmedPassword"
+              >
+                <ControlLabel>Confirm Password</ControlLabel>
+                <FormControl
+                  type="password"
+                  placeholder="Confirm Password"
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+
+              <FormGroup
+                controlId="signup"
+              >
+                <Button bsStyle="primary" type="submit">Sign up</Button>
+              </FormGroup>
+            </form>
+
             <div>
-              <form onSubmit={this.handleSubmit}>
-                <FormGroup
-                  controlId="firstName"
-                >
-                  <ControlLabel>First Name</ControlLabel>
-                  <FormControl
-                    type="text"
-                    placeholder="Ivan"
-                    onChange={this.handleChange}
+              <a href="/api/v1/users/facebookLogin">
+                <span>
+                  <FontAwesome
+                    name='facebook-official'
+                    size='4x'
                   />
-                </FormGroup>
-
-                <FormGroup
-                  controlId="lastName"
-                >
-                  <ControlLabel>Last Name</ControlLabel>
-                  <FormControl
-                    type="text"
-                    placeholder="Rangel"
-                    onChange={this.handleChange}
-                  />
-                </FormGroup>
-
-                <FormGroup
-                  controlId="email"
-                >
-                  <ControlLabel>Email</ControlLabel>
-                  <FormControl
-                    type="text"
-                    placeholder="something@whatever.any"
-                    onChange={this.handleChange}
-                  />
-                </FormGroup>
-
-                <FormGroup
-                  controlId="password"
-                >
-                  <ControlLabel>Password</ControlLabel>
-                  <FormControl
-                    type="password"
-                    placeholder="Password"
-                    onChange={this.handleChange}
-                  />
-                </FormGroup>
-                <FormGroup
-                  controlId="confirmedPassword"
-                >
-                  <ControlLabel>Confirm Password</ControlLabel>
-                  <FormControl
-                    type="password"
-                    placeholder="Confirm Password"
-                    onChange={this.handleChange}
-                  />
-                </FormGroup>
-
-                <FormGroup
-                  controlId="signup"
-                >
-                  <Button bsStyle="primary" type="submit">Sign up</Button>
-                </FormGroup>
-              </form>
-
-              <div>
-                <a href="/api/v1/users/facebookLogin">
-                  <span>
-                    <FontAwesome
-                      name='facebook-official'
-                      size='4x'
-                    />
-                  </span>
-                </a>
-              </div>
-
-            </div >
+                </span>
+              </a>
+            </div>
           </Col>
         </Row>
       </Grid>

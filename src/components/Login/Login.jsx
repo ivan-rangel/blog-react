@@ -17,6 +17,11 @@ class Login extends Component {
   }
 
   componentDidMount() {
+
+    if (this.authS.isLoggedIn()) {
+      return this.props.history.replace('/');
+    }
+
     const token = this.props.match.params.token;
     if (token) {
       this.authS.saveToken(token);

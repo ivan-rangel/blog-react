@@ -29,9 +29,7 @@ class Header extends Component {
   handleLogout(e) {
     e.preventDefault();
     this.authS.logout()
-    //this.props.history.push('/');
-    console.log(this.props.history);
-    
+
     setTimeout(() => {
       window.location.reload()
     }, 500);

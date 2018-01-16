@@ -1,5 +1,5 @@
 import decode from 'jwt-decode';
-import axios from 'axios';
+import axiosInstace from '../Interceptor/Interceptor';
 
 export default class AuthService {
   // Initializing important variables
@@ -20,7 +20,7 @@ export default class AuthService {
   login(user) {
     // Get a token from api server using the fetch api
     let promise = new Promise((resolve, reject) => {
-      axios.post(`${this.apiUrl}/users/login`, user)
+      axiosInstace.post(`${this.apiUrl}/users/login`, user)
         .then(res => {
           let token = res.data.token;
           this.saveToken(token) // Setting the token in localStorage
@@ -44,7 +44,7 @@ export default class AuthService {
       return
     }
     let promise = new Promise((resolve, reject) => {
-      axios.post(`${this.apiUrl}/users`, user)
+      axiosInstace.post(`${this.apiUrl}/users`, user)
         .then(res => {
           let token = res.data.token;
           this.saveToken(token);
@@ -94,7 +94,7 @@ export default class AuthService {
   }
   getNewToken() {
     let promise = new Promise((resolve, reject) => {
-      axios.post(`${this.API_URL}/users/newToken`, {})
+      axiosInstace.post(`${this.apiUrl}/users/newToken`, {})
         .then(response => {
           if (this.currentUser()["userType"] !== 'admin') {
             let token = response.data["token"]
