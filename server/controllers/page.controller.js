@@ -1,10 +1,9 @@
-
 const Page = require('../models/Page');
 const email = require('../utils/mail');
 
 exports.list = function (req, res) {
     Page
-        .find({})
+        .find({ title: { $eq: null } })
         .lean()
         .exec()
         .then((pages) => {

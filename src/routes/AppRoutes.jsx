@@ -11,6 +11,7 @@ import Login from '../components/Login/Login'
 import Signup from '../components/Signup/Signup'
 import Post from '../components/Post/Post/Post'
 import PostCreate from '../components/Post/PostCreate/PostCreate'
+import Admin from '../components/Admin/Admin'
 
 // Routing
 const AppRoutes = () =>
@@ -25,6 +26,7 @@ const AppRoutes = () =>
       <Route exact path="/post/:postId" component={Post} />
       <Route exact path="/post-create" component={PostCreate} />
       <Route exact path="/profile" component={Profile} />
+      <Route exact path="/admin" component={Admin} />
     </Switch>
     <Footer />
   </main>;

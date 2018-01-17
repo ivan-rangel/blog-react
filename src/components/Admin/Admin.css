@@ -1,0 +1,11 @@
+td>span:hover {
+    cursor: pointer;
+}
+
+.section:hover {
+    background-color: lightskyblue;
+    border-color: lightseagreen;
+    border-style: solid;
+    cursor: pointer;
+    border-radius: 5px;
+}

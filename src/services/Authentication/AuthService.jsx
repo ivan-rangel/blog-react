@@ -4,7 +4,7 @@ import axiosInstace from '../Interceptor/Interceptor';
 export default class AuthService {
   // Initializing important variables
   constructor() {
-    this.apiUrl = 'http://local.blog.com:8080/api/v1' // API server domain
+    this.apiUrl = '/api/v1' // API server domain
     //this.fetch = this.fetch.bind(this) // React binding stuff
     this.login = this.login.bind(this)
     this.logout = this.logout.bind(this)

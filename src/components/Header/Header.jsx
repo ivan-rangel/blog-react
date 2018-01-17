@@ -29,6 +29,7 @@ class Header extends Component {
   handleLogout(e) {
     e.preventDefault();
     this.authS.logout()
+    
 
     setTimeout(() => {
       window.location.reload()
@@ -71,7 +72,7 @@ class Header extends Component {
             (
 
               <Nav pullRight>
-                <LinkContainer to='/profile' activeClassName="">
+                <LinkContainer to={this.state.currentUser.userType === 'user' ? '/profile' : '/admin'} activeClassName="">
                   <NavItem eventKey={1}>
                     Welcome {this.state.currentUser.firstName} {this.state.currentUser.lastName}
                   </NavItem>

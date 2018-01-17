@@ -28,8 +28,13 @@ class Signup extends Component {
   handleSubmit(event) {
     event.preventDefault();
     //this.setState({ value: event.target.value });
-    console.log(this.state.user)
     this.authS.signUp(this.state.user)
+      .then(() => {
+        this.props.history.push('/')
+        setTimeout(() => {
+          window.location.reload()
+        }, 500);
+      })
   }
   render() {
 

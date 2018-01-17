@@ -3,7 +3,7 @@ import axiosInstance from '../Interceptor/Interceptor'
 export default class PostService {
   // Initializing important variables
   constructor() {
-    this.api_url = 'http://local.blog.com:8080/api/v1/posts' // API server domain
+    this.api_url = '/api/v1/posts' // API server domain
     this.getPost = this.getPost.bind(this)
     this.getPosts = this.getPosts.bind(this)
     this.getPostByUser = this.getPostByUser.bind(this)
